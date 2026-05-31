@@ -18,12 +18,9 @@ public class WaveSystemScript : MonoBehaviour
     private int currentWave = 0;
     private float enemyspeed = 1f;
 
-    private void Start()
-    {
-        StartCoroutine(SpawnWaves());
-    }
+   
 
-    private IEnumerator SpawnWaves()
+    public IEnumerator SpawnWaves()
     {
         while (true && !GameManager.IsEnemyReached)
         {
@@ -42,7 +39,7 @@ public class WaveSystemScript : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenWaves);
         }
     }
-
+    public static List<EnemyScript> EnemySpawnedList = new List<EnemyScript>();
     private void SpawnEnemy(float speed)
     {
         for(int i = 0; i < enemyCount; i++)
@@ -50,6 +47,7 @@ public class WaveSystemScript : MonoBehaviour
             EnemyScript enemyClone = Instantiate(enemiesPrefabList[i], spawnPoint.position, Quaternion.identity);
             enemyClone.transform.SetParent(enemySpawnParent, true);
             enemyClone.moveSpeed = speed;
+            EnemySpawnedList.Add(enemyClone);
         }
 
     }

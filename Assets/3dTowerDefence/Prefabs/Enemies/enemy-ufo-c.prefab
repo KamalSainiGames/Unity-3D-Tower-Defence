@@ -243,7 +243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6105312f8c1c59845846c8335639f7d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17179f4873c80f2478bb7f61e236be76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -353,9 +353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8fc3591b15e1704eb9b2f5eccbb9b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesType: 0
+  enemieType: 0
   healthBarImg: {fileID: 7919396274093623558}
-  healthBarObj: {fileID: 0}
   moveSpeed: 1
   health: 50
   damage: 0

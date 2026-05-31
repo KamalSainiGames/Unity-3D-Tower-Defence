@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
+using System.Collections;
 
 public class EnemyScript : MonoBehaviour
 {
-    [SerializeField] private Enemies enemiesType;
+    [SerializeField] private EnemyType enemieType;
 
     [SerializeField] private Image healthBarImg;
-    [SerializeField] private GameObject healthBarObj;
+   
 
     public float moveSpeed, health, damage;
     private float maxHealth = 50;
@@ -29,7 +29,7 @@ public class EnemyScript : MonoBehaviour
             healthBarImg.fillAmount = health / maxHealth;
             if (health <= 0)
             {
-                Die();
+                StartCoroutine(Die());
             }
         }
     }
@@ -39,10 +39,12 @@ public class EnemyScript : MonoBehaviour
         Health -= damageAmount;
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
+        yield return new WaitForSeconds(0.5f);
         //play Death animation
         this.gameObject.SetActive(false);
+        WaveSystemScript.EnemySpawnedList.Remove(this);
     }
 
 
@@ -65,16 +67,13 @@ public class EnemyScript : MonoBehaviour
     {
         if (currentWaypointIndex >= Waypoints.points.Length)
         {
-            ReachBase();
+            ReachATBase();
             return;
         }
 
         Transform targetWaypoint = Waypoints.points[currentWaypointIndex];
 
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            targetWaypoint.position,
-            moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position,targetWaypoint.position,moveSpeed * Time.deltaTime);
 
         transform.LookAt(targetWaypoint);
 
@@ -85,7 +84,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    private void ReachBase()
+    private void ReachATBase()
     {
         IsEnemyReached = true;
         GameManager.IsEnemyReached = true;

@@ -9,16 +9,65 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    public static bool IsEnemyReached=false;
+    public static bool IsEnemyReached = false;
+
+    public WaveSystemScript waveSystemScript;
+
+
+
+    public void TowerPlacement()
+    {
+
+    }
+
+    public void PlayGame()
+    {
+        StartCoroutine(waveSystemScript.SpawnWaves());
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    public void ApplicationQuit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 
 }
-public enum Towers
+public enum TowerType
 {
-    Turret, Cannon, Crystal, Catapult, Ballista
+    Turret,
+    Cannon,
+    Crystal,
+    Catapult,
+    Ballist
 }
-public enum Enemies 
+
+public enum EnemyType
 {
-    normalufo,weaponedufo
+    NormalUFO,
+    WeaponedUFO
 }
+
+public enum TowerSpot
+{
+    spot1,spot2,spot3,spot4,spot5,spot6
+}
+
+public enum TowerSpotType
+{
+    Locked,
+    Available,
+    Occupied
+}
+
 
 
