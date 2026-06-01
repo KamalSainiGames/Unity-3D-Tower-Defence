@@ -1,0 +1,40 @@
+# Assets Used
+
+## Audio
+
+### # Assets Used
+
+## Audio
+
+### Background Music and Sound Effects
+
+* Source: Pixabay
+* URL: https://pixabay.com/music/
+* License: Pixabay License (Free for commercial use)
+
+
+
+## Art Assets
+
+### Tower Sprites
+
+* Source: Kenney
+* URL: https://kenney.nl/assets
+* License: CC0
+
+
+
+## Fonts
+
+### Game UI and Font
+
+
+* Source: Hyper Casual UI Pack
+* URL: https://assetstore.unity.com/packages/2d/gui/hyper-casual-ui-pack-375832
+* License: Unity Free
+
+## Notes
+
+All third-party assets are used according to their respective licenses.
+Custom gameplay code, UI implementation, and game logic were developed by the project author.
+
