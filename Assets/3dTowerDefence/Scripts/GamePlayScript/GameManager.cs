@@ -11,14 +11,7 @@ public class GameManager : MonoBehaviour
 
     public static bool IsEnemyReached = false;
 
-    public WaveSystemScript waveSystemScript;
-
-
-
-    public void TowerPlacement()
-    {
-
-    }
+    public WaveSystemScript waveSystemScript;   
 
     public void PlayGame()
     {
@@ -31,6 +24,15 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+    }
+
+    public void RestartGame()
+    {
+        //
+    }
+    public static void TowersDefeted()
+    {
+        IsEnemyReached = true;
     }
     public void ApplicationQuit()
     {

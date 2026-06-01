@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSystemScript : MonoBehaviour
 {
@@ -16,16 +17,22 @@ public class WaveSystemScript : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 10f;
 
     private int currentWave = 0;
+    private int totalWave = 20;
     private float enemyspeed = 1f;
-
-   
+    public Text waveCount;
+    public static bool IslastWave=false;
 
     public IEnumerator SpawnWaves()
     {
         while (true && !GameManager.IsEnemyReached)
         {
+            if (totalWave <= currentWave)
+            {
+                IslastWave = true;
+                break;
+            }
             currentWave++;
-
+            waveCount.text = currentWave + "/" + totalWave;
             Debug.Log("Wave " + currentWave);
 
             for (int i = 0; i < enemiesPerWave; i++)

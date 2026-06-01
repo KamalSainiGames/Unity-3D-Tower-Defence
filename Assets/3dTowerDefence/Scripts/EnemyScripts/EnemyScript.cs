@@ -56,7 +56,7 @@ public class EnemyScript : MonoBehaviour
         }
         else
         {
-            WinningAnimation();
+            EnemyVictoryAnimation();
             Debug.Log("Enemy is Stopped!");
         }
 
@@ -87,15 +87,15 @@ public class EnemyScript : MonoBehaviour
     private void ReachATBase()
     {
         IsEnemyReached = true;
-        GameManager.IsEnemyReached = true;
+        GameManager.TowersDefeted();
+
         Debug.Log("Enemy is reached to base");
-        // Base ko damage do
-        // GameManager.Instance.TakeDamage(enemyDamage);
+        
         //play Base Destroy Animation
         //Disable tower
     }
 
-    private void WinningAnimation()
+    private void EnemyVictoryAnimation()
     {
        //Adding Enemy win animation;
     }

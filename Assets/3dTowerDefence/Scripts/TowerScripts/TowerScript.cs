@@ -35,7 +35,7 @@ public class TowerScript : MonoBehaviour
         if (currentTarget == null)
             return;
 
-        float distance = Vector3.Distance(transform.position,currentTarget.transform.position);
+        float distance = Vector3.Distance(transform.position, currentTarget.transform.position);
 
         if (distance > range)
         {
@@ -50,9 +50,11 @@ public class TowerScript : MonoBehaviour
             Shoot(currentTarget);
             nextFireTime = Time.time + (1f / fireRate);
         }
+
+
     }
 
-  
+
     private void FindTarget()
     {
         currentTarget = null;
